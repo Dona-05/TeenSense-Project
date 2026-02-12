@@ -1,0 +1,9 @@
+date,emotion,confidence,source
+2026-02-11,Happy,1.0,emoji
+2026-02-11,Anxious,1.0,emoji
+2026-02-11,Happy,1.0,emoji
+2026-02-11,Anxious,1.0,emoji
+2026-02-11,Sad,1.0,emoji
+2026-02-11,Happy,1.0,emoji
+2026-02-11,Angry,0.63,journal
+2026-02-11,Sad,0.93,journal

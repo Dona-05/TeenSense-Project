@@ -1,0 +1,14 @@
+date,emotion,confidence
+2026-02-10,Angry,0.86
+2026-02-10,Sad,0.88
+2026-02-10,Angry,0.62
+2026-02-10,Happy,0.99
+2026-02-10,Angry,0.91
+2026-02-10,Sad,0.99
+2026-02-10,Sad,0.95
+2026-02-10,Sad,0.78
+2026-02-11,Sad,1.0,emoji
+2026-02-11,Neutral,1.0,emoji
+2026-02-11,Neutral,1.0,emoji
+2026-02-11,Happy,1.0,emoji
+2026-02-11,Anxious,1.0,emoji
