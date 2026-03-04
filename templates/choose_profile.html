@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeenSense - Choose Profile</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Background Gradient */
+        .bg-overlay-gradient {
+            background: linear-gradient(
+                135deg,
+                rgba(193, 56, 137, 0.85) 0%,
+                rgba(121, 64, 172, 0.85) 50%,
+                rgba(41, 114, 219, 0.9) 100%
+            );
+        }
+
+        .icon-bg-blue { background-color: #aecdff; }
+        .icon-color-blue { color: #1e5dd1; }
+
+        .icon-bg-pink { background-color: #f7cbdc; }
+        .icon-color-pink { color: #e736f0; }
+    </style>
+</head>
+
+<body class="antialiased h-screen overflow-hidden relative">
+
+    <!-- BACKGROUND -->
+    <div class="absolute inset-0 z-0">
+        <img src="{{ url_for('static', filename='images/choose.png') }}"
+             alt="Background"
+             class="w-full h-full object-cover">
+
+        <div class="absolute inset-0 bg-overlay-gradient mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-overlay-gradient opacity-90"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="absolute top-0 left-0 w-full p-6 z-20">
+        <a href="/" class="flex items-center gap-2 max-w-7xl mx-auto">
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <span class="text-2xl font-bold text-white tracking-wide">TeenSense</span>
+        </a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="relative z-10 h-full flex flex-col items-center justify-center px-6 overflow-y-auto py-20">
+
+        <div class="text-center mb-12 max-w-2xl">
+            <h1 class="text-5xl font-bold text-white mb-4 drop-shadow-sm">
+                Create Your Profile
+            </h1>
+            <p class="text-lg text-white/90 leading-relaxed drop-shadow-sm">
+                Choose your profile type to begin your journey toward better emotional awareness and family connection
+            </p>
+        </div>
+
+        <!-- PROFILE CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
+
+            <!-- PARENT PROFILE -->
+            <a href="/parent/signup"
+               class="bg-white rounded-[2rem] p-10 flex flex-col items-center text-center
+                      transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group">
+
+                <div class="icon-bg-blue w-24 h-24 rounded-full flex items-center justify-center mb-6 transition-transform group-hover:scale-110">
+                    <svg class="w-12 h-12 icon-color-blue" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                    </svg>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    Parent Profile
+                </h2>
+
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Stay connected with your teen's emotional well-being through alerts, guidance, and supportive insights.
+                </p>
+            </a>
+
+            <!-- CHILD PROFILE -->
+            <a href="/child/signup"
+               class="bg-white rounded-[2rem] p-10 flex flex-col items-center text-center
+                      transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group">
+
+                <div class="icon-bg-pink w-24 h-24 rounded-full flex items-center justify-center mb-6 transition-transform group-hover:scale-110">
+                    <svg class="w-12 h-12 icon-color-pink" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    Child Profile
+                </h2>
+
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Express your emotions through journaling and receive personalized flashcards for emotional understanding.
+                </p>
+            </a>
+
+        </div>
+    </main>
+
+</body>
+</html>

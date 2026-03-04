@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeenSense - Login</title>
+
+<style>
+:root {
+    --primary-gradient: linear-gradient(135deg, #c92a6e 0%, #4a6cf7 100%);
+    --text-dark: #333;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+}
+
+.login-container{
+    display:flex;
+    height:100vh;
+}
+
+/* LEFT SIDE */
+.login-left{
+    flex:1;
+    background:var(--primary-gradient);
+    color:white;
+    padding:60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.login-left h1{
+    font-size:3rem;
+    margin:40px 0 20px;
+}
+
+.feature-item{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+/* RIGHT SIDE */
+.login-right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:white;
+}
+
+.form-card{
+    width:100%;
+    max-width:400px;
+}
+
+.form-card h2{
+    text-align:center;
+    margin-bottom:10px;
+    font-size:2rem;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:30px;
+}
+
+.input-label{
+    display:block;
+    font-weight:600;
+    margin-bottom:8px;
+    color:var(--text-dark);
+}
+
+.login-input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.btn-signin{
+    width:100%;
+    padding:14px;
+    background:var(--primary-gradient);
+    border:none;
+    border-radius:8px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.signup-link{
+    text-align:center;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <!-- LEFT SIDE -->
+    <div class="login-left">
+        <div class="brand">
+            ★ TeenSense
+        </div>
+
+        <h1>Supporting Teen Emotional Well-Being, Together</h1>
+
+        <p>A safe space for teens and parents to connect and grow emotionally stronger.</p>
+
+        <div class="feature-item">✓ Safe & confidential support</div>
+        <div class="feature-item">👥 Connect teens & parents</div>
+        <div class="feature-item">✨ Expert emotional guidance</div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="login-right">
+        <div class="form-card">
+
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Sign in to continue your journey</p>
+
+            <!-- ⭐ VERY IMPORTANT FORM -->
+            <form method="POST" action="/login">
+
+                <label class="input-label">Email</label>
+                <input type="email" name="email" class="login-input"
+                       placeholder="Enter your email" required>
+
+                <label class="input-label">Password</label>
+                <input type="password" name="password" class="login-input"
+                       placeholder="Enter your password" required>
+
+                <button type="submit" class="btn-signin">
+                    Sign In
+                </button>
+
+            </form>
+
+            <p class="signup-link">
+                Don’t have an account?
+                <a href="/choose-profile" style="color:#c92a6e;font-weight:bold;text-decoration:none;">
+                    Sign up now
+                </a>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

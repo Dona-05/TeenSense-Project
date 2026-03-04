@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeenSense Dashboard</title>
+
+<style>
+:root{
+    --primary-pink:#d81b60;
+    --primary-blue:#2563eb;
+    --gradient-main:linear-gradient(135deg,#ec4899 0%,#3b82f6 100%);
+    --bg-light:#f8fafc;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:var(--bg-light);}
+
+/* NAV */
+.dash-nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:white;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+
+.nav-links{display:flex;gap:25px;}
+.nav-links a{text-decoration:none;color:#64748b;font-weight:500;}
+.nav-links a.active{color:var(--primary-pink);}
+
+.user-badge{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#eff6ff;
+    padding:6px 16px;
+    border-radius:50px;
+}
+
+/* DASH BODY */
+.dash-body{padding:60px 8%;}
+.dash-body h1{font-size:50px;margin-bottom:50px;color:#1e293b;}
+
+.card-container{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    width:320px;
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+    border-top:6px solid;
+}
+
+.card-pink{border-top-color:var(--primary-pink);}
+.card-blue{border-top-color:var(--primary-blue);}
+
+.btn{
+    margin-top:20px;
+    padding:12px;
+    width:100%;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn-outline-blue{
+    border:1px solid var(--primary-blue);
+    background:#eff6ff;
+    color:var(--primary-blue);
+}
+
+.btn-outline-pink{
+    border:1px solid var(--primary-pink);
+    background:#fff1f2;
+    color:var(--primary-pink);
+}
+
+.logout-btn{
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* remove underline from button links */
+.card a{
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= PARENT DASHBOARD ================= -->
+<nav class="dash-nav">
+    <div style="font-size:24px;font-weight:bold;color:#d81b60;">★ TeenSense</div>
+
+    <div class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="/alerts">Alerts</a>
+        <a href="/flashcards">Flashcards</a>
+        <a href="#">Reminders</a>
+    </div>
+
+    <div style="display:flex;gap:12px;align-items:center;">
+        <div class="user-badge">
+            ★ <b>{{ parent_name }}</b>
+        </div>
+
+        <a href="/logout">
+            <button class="logout-btn">Logout</button>
+        </a>
+    </div>
+</nav>
+
+<div class="dash-body">
+    <h1>Welcome back!</h1>
+
+    <div class="card-container">
+
+        <div class="card card-pink">
+            <h3>⚠️ Alerts</h3>
+            <p>Receive emotional alerts from your child’s journal.</p>
+
+            <!-- ALERTS LINK -->
+            <a href="/alerts">
+                <button class="btn btn-outline-pink">Check Alerts</button>
+            </a>
+        </div>
+
+        <div class="card card-blue">
+            <h3>💬 Flashcards</h3>
+            <p>Send flashcards to understand your child better.</p>
+
+            <!-- FLASHCARDS LINK -->
+            <a href="/parent/flashcards">Flashcards</a>
+                <button class="btn btn-outline-blue">Send Cards</button>
+            </a>
+        </div>
+
+        <div class="card card-pink">
+            <h3>🔔 Reminders</h3>
+            <p>Personalized reminders for healthy communication.</p>
+            <button class="btn btn-outline-pink">View Reminders</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

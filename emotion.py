@@ -95,7 +95,7 @@ def daily_emotion_analysis(journal_answers):
     }
 
 # -------------------------------
-# SAVE DAILY EMOTION (COMMON)
+# SAVE DAILY EMOTION
 # -------------------------------
 def save_daily_emotion(emotion, confidence, source):
     today = date.today().isoformat()
@@ -115,6 +115,56 @@ def save_daily_emotion(emotion, confidence, source):
         df.to_csv("daily_emotions.csv", index=False)
 
     print("Daily mood recorded successfully.")
+
+# -------------------------------
+# CHECK LAST 5 ENTRIES
+# LOOK FOR 3 CONSECUTIVE NEGATIVES
+# -------------------------------
+def check_for_supportive_guidance():
+    try:
+        df = pd.read_csv("daily_emotions.csv")
+    except FileNotFoundError:
+        return
+
+    # Require at least 5 total entries
+    if len(df) < 5:
+        return
+
+    last_five = df.tail(5)["emotion"].tolist()
+    negative_emotions = ["Sad", "Anxious", "Angry"]
+
+    # Slide window of 3 inside last 5
+    for i in range(len(last_five) - 2):
+        window = last_five[i:i+3]
+
+        if all(emotion in negative_emotions for emotion in window):
+
+            dominant_emotion = max(set(window), key=window.count)
+
+            if dominant_emotion in ["Angry", "Anxious"]:
+                intensity = "Moderate"
+            else:
+                intensity = "Mild"
+
+            guidance_templates = {
+                "Sad": "It may be helpful to spend a little extra time listening and offering reassurance.",
+                "Anxious": "A calm conversation and reassurance about support and safety may be beneficial.",
+                "Angry": "Encouraging open discussion about what might be causing frustration could help."
+            }
+
+            print("\n==============================")
+            print("        GENTLE ALERT")
+            print("==============================")
+            print(f"Dominant Emotion : {dominant_emotion}")
+            print(f"Intensity        : {intensity}")
+            print()
+            print(guidance_templates.get(
+                dominant_emotion,
+                "A supportive check-in may be helpful at this time."
+            ))
+            print("==============================\n")
+
+            break  # Stop after first pattern found
 
 # -------------------------------
 # JOURNAL INPUT MODE
@@ -156,11 +206,16 @@ def mood_check_in():
     }
 
     if choice in emoji_map:
+        emotion_selected = emoji_map[choice]
+
         save_daily_emotion(
-            emoji_map[choice],
+            emotion_selected,
             1.0,
             "emoji"
         )
+
+        check_for_supportive_guidance()
+
     else:
         print("Invalid selection.")
 
@@ -189,6 +244,8 @@ if __name__ == "__main__":
                 result["avg_confidence"],
                 "journal"
             )
+
+            check_for_supportive_guidance()
 
     elif option == "2":
         mood_check_in()

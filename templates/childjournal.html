@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeenSense - Journaling</title>
+
+<style>
+:root {
+    --primary-pink:#d81b60;
+    --primary-blue:#2563eb;
+    --gradient-btn:linear-gradient(90deg,#c026d3 0%,#3b82f6 100%);
+    --text-muted:#6b7280;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:white;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    border-bottom:1px solid #eee;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:var(--primary-pink);
+    text-decoration:none;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:var(--text-muted);
+}
+
+.nav-links .active{
+    color:var(--primary-pink);
+}
+
+.user-badge{
+    background:#eff6ff;
+    padding:6px 16px;
+    border-radius:30px;
+}
+
+/* MAIN */
+.container{
+    max-width:900px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+h1{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:var(--text-muted);
+    margin-bottom:30px;
+}
+
+/* MESSAGE */
+.message{
+    background:#ecfdf3;
+    color:#166534;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+/* TABS */
+.tab-container{
+    display:flex;
+    background:#e5e7eb;
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.tab{
+    flex:1;
+    padding:14px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.tab.active{
+    background:var(--gradient-btn);
+    color:white;
+}
+
+/* JOURNAL */
+textarea{
+    width:100%;
+    height:250px;
+    background:#f3f4f6;
+    border:none;
+    border-radius:12px;
+    padding:20px;
+    font-size:16px;
+    resize:none;
+    margin-bottom:20px;
+}
+
+/* BUTTONS */
+.btn-row{
+    display:flex;
+    gap:20px;
+}
+
+.btn{
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn-save{
+    flex:2;
+    background:var(--gradient-btn);
+    color:white;
+}
+
+.btn-clear{
+    flex:1;
+    background:#d1d5db;
+}
+
+/* MOOD GRID */
+.hidden{display:none;}
+
+.mood-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    text-align:center;
+}
+
+.mood-circle{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="/child/dashboard" class="logo">★ TeenSense</a>
+
+    <div class="nav-links">
+        <a href="/child/dashboard">Home</a>
+        <a class="active">Journaling</a>
+        <a href="#">Flashcards</a>
+        <a href="#">Reminders</a>
+    </div>
+
+    <div class="user-badge">
+        ★ <b>{{ child_name }}</b>
+    </div>
+</nav>
+
+<div class="container">
+
+<h1>Journaling</h1>
+<p class="subtitle">Track your emotions and reflect on your day.</p>
+
+{% if message %}
+<div class="message">
+    {{ message }} | Emotion detected: <b>{{ emotion }}</b>
+</div>
+{% endif %}
+
+<div class="tab-container">
+    <div id="tab-entry" class="tab active" onclick="switchView('entry')">
+        Journal Entry
+    </div>
+    <div id="tab-mood" class="tab" onclick="switchView('mood')">
+        Quick Mood Check
+    </div>
+</div>
+
+<!-- JOURNAL ENTRY -->
+<div id="entry-section">
+
+<form method="POST">
+
+<h3 style="margin-bottom:10px;">How are you feeling today?</h3>
+<p style="color:#6b7280;margin-bottom:15px;">
+Express your thoughts freely. This is your safe space.
+</p>
+
+<textarea name="journal_text"
+placeholder="Write about your day..."></textarea>
+
+<div class="btn-row">
+    <button type="submit" class="btn btn-save">Save Entry</button>
+    <button type="reset" class="btn btn-clear">Clear</button>
+</div>
+
+</form>
+</div>
+
+<!-- MOOD SECTION -->
+<div id="mood-section" class="hidden">
+<h3>Quick Mood Check</h3>
+
+<div class="mood-grid">
+
+<div>
+<div class="mood-circle" style="background:#22c55e;">😊</div>
+<p>Happy</p>
+</div>
+
+<div>
+<div class="mood-circle" style="background:#f97316;">☹️</div>
+<p>Sad</p>
+</div>
+
+<div>
+<div class="mood-circle" style="background:#ca8a04;">🤯</div>
+<p>Anxious</p>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<script>
+function switchView(type){
+
+const entry=document.getElementById("entry-section");
+const mood=document.getElementById("mood-section");
+
+const tabEntry=document.getElementById("tab-entry");
+const tabMood=document.getElementById("tab-mood");
+
+if(type==="entry"){
+    entry.classList.remove("hidden");
+    mood.classList.add("hidden");
+    tabEntry.classList.add("active");
+    tabMood.classList.remove("active");
+}else{
+    entry.classList.add("hidden");
+    mood.classList.remove("hidden");
+    tabEntry.classList.remove("active");
+    tabMood.classList.add("active");
+}
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeenSense</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+        }
+        .text-brand-pink { color: #d92b88; }
+        .bg-brand-pink { background-color: #d92b88; }
+        .bg-light-pink { background-color: #fce8f0; }
+        .icon-bg { background-color: #f17cb0; }
+        
+        .btn-gradient {
+            background: linear-gradient(90deg, #d92b88 0%, #3b82f6 100%);
+        }
+    </style>
+</head>
+<body class="antialiased bg-white">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-50 max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <svg class="w-8 h-8 text-brand-pink" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <span class="text-2xl font-bold text-brand-pink">TeenSense</span>
+        </div>
+
+        <div class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-700">
+            <a href="#home" class="hover:text-brand-pink transition-colors">Home</a>
+            <a href="#about" class="hover:text-brand-pink transition-colors">About</a>
+            <a href="#features" class="hover:text-brand-pink transition-colors">Features</a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-6 font-medium text-sm">
+            <a href="/login" class="text-gray-800 hover:text-brand-pink transition-colors">Log In</a>
+            <a href="/choose-profile" class="btn-gradient text-white px-6 py-2.5 rounded-full hover:opacity-90 transition-opacity">
+                GET STARTED
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="max-w-7xl mx-auto px-6 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="pr-0 md:pr-12">
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                    Supporting Teen <br>Emotional Well-Being, <br>
+                    <span class="text-brand-pink">Together</span>
+                </h1>
+                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                    TeenSense bridges the gap between teenagers and parents through intelligent emotional tracking, journaling, and AI-driven insights for healthier family communication.
+                </p>
+                <a href="/choose-profile" class="inline-flex items-center justify-center bg-blue-500 text-white font-medium px-8 py-3.5 rounded-full hover:bg-blue-600 transition-colors">
+                    Start Your Journey
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+            <div class="relative">
+                <img src="{{ url_for('static', filename='images/homepage.png') }}" alt="Teen journaling" class="rounded-[2.5rem] w-full h-[500px] object-cover shadow-sm">
+            </div>
+        </section>
+
+        <section id="about" class="max-w-4xl mx-auto px-6 py-20 scroll-mt-20">
+            <h2 class="text-4xl font-bold text-center text-brand-pink mb-10">About</h2>
+            <div class="text-gray-600 leading-relaxed text-base space-y-6">
+                <p>
+                    TeenSense is a dual-module emotional well-being support system built to strengthen understanding between teenagers and parents. It offers teens a safe space to express their feelings through journaling while interactive flashcards help them recognize emotions and learn healthy coping strategies.
+                </p>
+                <ul class="list-disc list-outside ml-5 space-y-1.5 marker:text-gray-400">
+                    <li>Safe space for teens to express thoughts and emotions through journaling</li>
+                    <li>AI-powered emotional analysis to detect patterns and mood trends</li>
+                    <li>Interactive flashcards that improve emotional awareness and coping skills</li>
+                    <li>Timely alerts for parents when concerning emotional patterns are detected</li>
+                    <li>Guided reminder flashcards that encourage supportive parent responses</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="features" class="max-w-7xl mx-auto px-6 py-20 scroll-mt-20">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-pink mb-4">Comprehensive Emotional Support System</h2>
+                <p class="text-gray-600">
+                    TeenSense combines cutting-edge AI technology with compassionate design to create a safe space <br class="hidden md:block">for emotional expression and family connection.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-light-pink rounded-3xl p-8 transition-transform hover:-translate-y-1">
+                    <div class="icon-bg w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 6h4v12H4zm6 0h4v12h-4zm6 0h4v12h-4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Emotional Journaling</h3>
+                    <p class="text-sm text-gray-700 mb-5 leading-relaxed">
+                        Teens can express their feelings freely through a private, secure journaling interface designed to encourage emotional exploration.
+                    </p>
+                    <ul class="list-disc list-outside ml-4 text-xs text-gray-700 space-y-2 marker:text-gray-500">
+                        <li>Private & secure entries</li>
+                        <li>Mood tracking features</li>
+                        <li>Daily prompts & reflection</li>
+                    </ul>
+                </div>
+
+                <div class="bg-light-pink rounded-3xl p-8 transition-transform hover:-translate-y-1">
+                    <div class="icon-bg w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Smart Alerts</h3>
+                    <p class="text-sm text-gray-700 mb-5 leading-relaxed">
+                        Parents receive timely notifications when prolonged or concerning emotional patterns are detected.
+                    </p>
+                    <ul class="list-disc list-outside ml-4 text-xs text-gray-700 space-y-2 marker:text-gray-500">
+                        <li>Real-time notifications</li>
+                        <li>Concern level indicators</li>
+                        <li>Privacy-respecting</li>
+                    </ul>
+                </div>
+
+                <div class="bg-light-pink rounded-3xl p-8 transition-transform hover:-translate-y-1">
+                    <div class="icon-bg w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 9H6v-2h12v2zm-4 3H6v-2h8v2zm4-6H6V6h12v2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Flashcards</h3>
+                    <p class="text-sm text-gray-700 mb-5 leading-relaxed">
+                        Facilitate open dialogue through a guided, secure messaging interface that helps bridge the gap.
+                    </p>
+                    <ul class="list-disc list-outside ml-4 text-xs text-gray-700 space-y-2 marker:text-gray-500">
+                        <li>Guided conversation starters</li>
+                        <li>Mood-based context sharing</li>
+                        <li>Safe word protocols</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t-4 border-gray-100 py-8 mt-10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-gray-500 text-sm font-medium">© 2026 DESIGN All Rights Reserved</p>
+        </div>
+    </footer>
+
+</body>
+</html>

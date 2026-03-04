@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeenSense - Child Signup</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #f03e81 0%, #3b82f6 100%);
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.2);
+        padding: 40px;
+        width: 400px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        text-align: center;
+        color: white;
+    }
+
+    .logo-area {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .logo-area span { margin-left: 8px; }
+
+    h2 {
+        margin-bottom: 30px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 20px;
+        border-radius: 25px;
+        border: 1px solid rgba(255,255,255,0.3);
+        background: rgba(255,255,255,0.2);
+        color: white;
+        outline: none;
+    }
+
+    input::placeholder {
+        color: rgba(255,255,255,0.8);
+    }
+
+    .btn-create {
+        width: 100%;
+        padding: 12px;
+        border-radius: 25px;
+        border: none;
+        background: white;
+        color: #d63384;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="logo-area">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </svg>
+    <span>TeenSense</span>
+</div>
+
+<div class="glass-card">
+
+    <h2>Child Profile</h2>
+
+    <!-- IMPORTANT -->
+    <form method="POST">
+
+        <div class="input-group">
+            <input type="text" name="full_name" placeholder="Full Name" required>
+        </div>
+
+        <div class="input-group">
+            <input type="date" name="dob" required>
+        </div>
+
+        <div class="input-group">
+            <input type="text" name="education" placeholder="Educational Qualification" required>
+        </div>
+
+        <div class="input-group">
+            <input type="text" name="parent_id" placeholder="Parent ID (PRNT-XXXXXX)" required>
+        </div>
+
+        <div class="input-group">
+            <input type="email" name="email" placeholder="Email ID" required>
+        </div>
+
+        <div class="input-group">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="btn-create">
+            Create Account
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

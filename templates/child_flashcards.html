@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TeenSense - Child Flashcards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --primary-pink: #d81b60;
+            --primary-blue: #2563eb;
+            --gradient-main: linear-gradient(135deg, #ec4899 0%, #3b82f6 100%);
+            --bg-light: #f8fafc;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            background: var(--bg-light);
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            color: var(--primary-pink);
+            font-size: 26px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-pink);
+            border-bottom: 2px solid var(--primary-pink);
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #eff6ff;
+            padding: 6px 15px;
+            border-radius: 50px;
+        }
+
+        .user-icon {
+            background: var(--primary-blue);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logout-btn {
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: none;
+            background: #ef4444;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background: #dc2626;
+        }
+
+        /* PAGE CONTENT */
+        .container {
+            padding: 60px 10%;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            border-top: 8px solid var(--primary-pink);
+        }
+
+        .empty-message {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 18px;
+            color: #64748b;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo" onclick="window.location.href='/child/dashboard'">
+            ★ TeenSense
+        </div>
+
+        <div class="nav-links">
+            <a href="/child/dashboard">Home</a>
+            <a href="/journal">Journaling</a>
+            <a href="/child/flashcards" class="active">Flashcards</a>
+        </div>
+
+        <div class="right-section">
+            <div class="user-badge">
+                <div class="user-icon">★</div>
+                <b>{{ child_name }}</b>
+            </div>
+
+            <a href="/logout">
+                <button class="logout-btn">Logout</button>
+            </a>
+        </div>
+    </nav>
+
+    <!-- FLASHCARD CONTENT -->
+    <div class="container">
+        <h1>Your Flashcards</h1>
+
+        {% if cards %}
+            <div class="card-grid">
+                {% for card in cards %}
+                    <div class="card">
+                        <p>{{ card.message }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-message">
+                No flashcards received yet.
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

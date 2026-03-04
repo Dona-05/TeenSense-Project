@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeenSense - Alerts</title>
+
+<style>
+:root {
+    --primary-pink:#d81b60;
+    --primary-blue:#2563eb;
+    --bg-light:#f8fafc;
+    --alert-bg:#e7c7d2;
+    --alert-inner:#d9d9d9;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:var(--bg-light);
+}
+
+/* ================= NAVBAR ================= */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:white;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:var(--primary-pink);
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#64748b;
+    font-weight:500;
+}
+
+.nav-links a.active{
+    color:var(--primary-pink);
+}
+
+.right-section{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.user-badge{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#eff6ff;
+    padding:6px 16px;
+    border-radius:50px;
+}
+
+.logout-btn{
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* ================= ALERT SECTION ================= */
+
+.alert-overlay{
+    min-height:calc(100vh - 80px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f1f5f9;
+}
+
+.alert-card{
+    background:var(--alert-bg);
+    width:700px;
+    border-radius:25px;
+    padding:50px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.alert-card h1{
+    font-size:42px;
+    margin-bottom:30px;
+}
+
+.output-box{
+    background:var(--alert-inner);
+    border-radius:18px;
+    padding:30px;
+    min-height:220px;
+    text-align:left;
+}
+
+.output-box p{
+    font-size:22px;
+    font-weight:600;
+    line-height:1.5;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+
+    <div class="logo">★ TeenSense</div>
+
+    <div class="nav-links">
+        <a href="/parent/dashboard">Home</a>
+        <a href="/alerts" class="active">Alerts</a>
+        <a href="/flashcards">Flashcards</a>
+        <a href="#">Reminders</a>
+    </div>
+
+    <div class="right-section">
+
+        <div class="user-badge">
+            ★ <b>{{ parent_name }}</b>
+        </div>
+
+        <a href="/logout">
+            <button class="logout-btn">Logout</button>
+        </a>
+
+    </div>
+
+</nav>
+
+<!-- ================= ALERT CARD ================= -->
+
+<div class="alert-overlay">
+
+    <div class="alert-card">
+
+        <h1>ALERT</h1>
+
+        <div class="output-box">
+
+            {% if alert_message %}
+                <p>{{ alert_message }}</p>
+            {% else %}
+                <p>No alerts yet. Journaling analysis will appear here.</p>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

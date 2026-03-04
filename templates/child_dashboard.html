@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeenSense Child Dashboard</title>
+
+<style>
+    :root {
+        --primary-pink: #d81b60;
+        --primary-blue: #2563eb;
+        --gradient-main: linear-gradient(135deg, #ec4899 0%, #3b82f6 100%);
+        --bg-light: #f9fafb;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        background-color: var(--bg-light);
+    }
+
+    /* NAVBAR */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 80px;
+        background: white;
+    }
+
+    .brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-pink);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 500;
+    }
+
+    .nav-links a.active-link {
+        color: var(--primary-pink);
+    }
+
+    .right-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #f0f7ff;
+        padding: 6px 15px;
+        border-radius: 30px;
+    }
+
+    .logout-btn {
+        background: #ef4444;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+        background: #dc2626;
+    }
+
+    /* DASHBOARD CONTENT */
+    .dash-content {
+        padding: 60px 80px;
+    }
+
+    .dash-content h1 {
+        font-size: 64px;
+        margin-bottom: 60px;
+        color: #1f2937;
+    }
+
+    .card-grid {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .feature-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        width: 340px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        border-top: 8px solid;
+    }
+
+    .card-pink { border-top-color: var(--primary-pink); }
+    .card-blue { border-top-color: var(--primary-blue); }
+
+    .icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: #fce7f3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .card-btn {
+        width: 100%;
+        padding: 12px;
+        margin-top: 25px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .btn-solid {
+        background: var(--gradient-main);
+        color: white;
+    }
+
+    .btn-outline-blue {
+        border: 1px solid var(--primary-blue);
+        background: #eff6ff;
+        color: var(--primary-blue);
+    }
+
+    .btn-outline-pink {
+        border: 1px solid var(--primary-pink);
+        background: #fff1f2;
+        color: var(--primary-pink);
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+    <div class="brand-logo">
+        ★ TeenSense
+    </div>
+
+    <div class="nav-links">
+        <a href="#" class="active-link">Home</a>
+        <a href="#">Journaling</a>
+        <a href="#">Flashcards</a>
+        <a href="#">Reminders</a>
+    </div>
+
+    <div class="right-section">
+
+        <div class="user-profile">
+            <div style="
+                background: var(--primary-blue);
+                color: white;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;">
+                ★
+            </div>
+            <strong>{{ child_name }}</strong>
+        </div>
+
+        <!-- LOGOUT BUTTON -->
+        <a href="/logout">
+            <button class="logout-btn">Logout</button>
+        </a>
+
+    </div>
+
+</nav>
+
+<!-- DASHBOARD CONTENT -->
+<div class="dash-content">
+
+    <h1>Welcome back!</h1>
+
+    <div class="card-grid">
+
+        <div class="feature-card card-pink">
+            <div class="icon-box">📖</div>
+            <h3>Emotional Journaling</h3>
+            <p style="color:#666; margin-top:10px;">
+                Express your thoughts and track your emotional journey in a safe space.
+            </p>
+            <a href="/journal" class="card-btn btn-solid" style="display:block;text-align:center;text-decoration:none;">
+                Write New Entry
+            </a>
+        </div>
+
+        <div class="feature-card card-blue">
+            <div class="icon-box" style="background:#dbeafe;">🔔</div>
+            <h3>Reminders</h3>
+            <p style="color:#666; margin-top:10px;">
+                Stay updated with personalized reminders.
+            </p>
+            <button class="card-btn btn-outline-blue">Check Reminders</button>
+        </div>
+
+        <div class="feature-card card-pink">
+            <div class="icon-box">🗂️</div>
+            <h3>Flashcards</h3>
+            <p style="color:#666; margin-top:10px;">
+                Respond to flashcards sent by your parent.
+            </p>
+            <button class="card-btn btn-outline-pink">View Cards</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
