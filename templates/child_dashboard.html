@@ -34,9 +34,6 @@
     }
 
     .brand-logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
         font-size: 24px;
         font-weight: bold;
         color: var(--primary-pink);
@@ -80,14 +77,13 @@
         border-radius: 20px;
         cursor: pointer;
         font-weight: 600;
-        transition: 0.3s;
     }
 
     .logout-btn:hover {
         background: #dc2626;
     }
 
-    /* DASHBOARD CONTENT */
+    /* DASHBOARD */
     .dash-content {
         padding: 60px 80px;
     }
@@ -120,7 +116,7 @@
         width: 40px;
         height: 40px;
         border-radius: 8px;
-        background: #fce7f3;
+        background: #efebed;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -132,9 +128,10 @@
         padding: 12px;
         margin-top: 25px;
         border-radius: 10px;
-        border: none;
-        cursor: pointer;
         font-weight: 600;
+        text-align: center;
+        display: block;
+        text-decoration: none;
     }
 
     .btn-solid {
@@ -162,15 +159,13 @@
 <!-- NAVBAR -->
 <nav>
 
-    <div class="brand-logo">
-        ★ TeenSense
-    </div>
+    <div class="brand-logo">★ TeenSense</div>
 
     <div class="nav-links">
-        <a href="#" class="active-link">Home</a>
-        <a href="#">Journaling</a>
-        <a href="#">Flashcards</a>
-        <a href="#">Reminders</a>
+        <a href="/child/dashboard" class="active-link">Home</a>
+        <a href="/journal">Journaling</a>
+        <a href="/teen/flashcards">Flashcards</a>
+        <a href="/child/reminders">Reminders</a>
     </div>
 
     <div class="right-section">
@@ -190,7 +185,6 @@
             <strong>{{ child_name }}</strong>
         </div>
 
-        <!-- LOGOUT BUTTON -->
         <a href="/logout">
             <button class="logout-btn">Logout</button>
         </a>
@@ -199,40 +193,47 @@
 
 </nav>
 
-<!-- DASHBOARD CONTENT -->
+<!-- DASHBOARD -->
 <div class="dash-content">
 
     <h1>Welcome back!</h1>
 
     <div class="card-grid">
 
+        <!-- JOURNAL -->
         <div class="feature-card card-pink">
             <div class="icon-box">📖</div>
             <h3>Emotional Journaling</h3>
             <p style="color:#666; margin-top:10px;">
                 Express your thoughts and track your emotional journey in a safe space.
             </p>
-            <a href="/journal" class="card-btn btn-solid" style="display:block;text-align:center;text-decoration:none;">
+            <a href="/journal" class="card-btn btn-solid">
                 Write New Entry
             </a>
         </div>
 
+        <!-- REMINDERS -->
         <div class="feature-card card-blue">
             <div class="icon-box" style="background:#dbeafe;">🔔</div>
             <h3>Reminders</h3>
             <p style="color:#666; margin-top:10px;">
                 Stay updated with personalized reminders.
             </p>
-            <button class="card-btn btn-outline-blue">Check Reminders</button>
+            <a href="/child/reminders" class="card-btn btn-outline-blue">
+                Check Reminders
+            </a>
         </div>
 
+        <!-- FLASHCARDS -->
         <div class="feature-card card-pink">
             <div class="icon-box">🗂️</div>
             <h3>Flashcards</h3>
             <p style="color:#666; margin-top:10px;">
                 Respond to flashcards sent by your parent.
             </p>
-            <button class="card-btn btn-outline-pink">View Cards</button>
+            <a href="/teen/flashcards" class="card-btn btn-outline-pink">
+                View Cards
+            </a>
         </div>
 
     </div>

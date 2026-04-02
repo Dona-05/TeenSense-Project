@@ -1,2 +1,6 @@
-event,date,role,last_notified
-annual day,2026-02-19,both,2026-02-19
+id,title,date,start,end,description,created_by
+
+1,AAD Internal Exam,2026-03-26,09:00,10:30,both
+2,AAD Internal Exam,2026-03-26,09:00,10:30,,both
+3,Appointment,2026-03-27,10:00,12:00,,Safeena
+4,Robotics Homework,2026-03-28,08:00,08:00,,Kadeeja

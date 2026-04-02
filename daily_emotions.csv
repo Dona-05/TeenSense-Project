@@ -1,20 +1,16 @@
-date,emotion,confidence,source
+date,emotion,confidence,source,journal_text
+2026-03-15,Sad,1.0,emoji,
+2026-03-16,Anxious,0.95,journal,Feeling stressed about exams.
+2026-03-17,Angry,0.92,emoji,
 
+2026-03-18,Happy,0.98,journal,Feeling better today.
 
-2026-02-11,Sad,0.93,journal
+2026-03-19,Sad,1.0,emoji,
+2026-03-20,Anxious,0.93,journal,Worried about results.
+2026-03-21,Angry,0.96,journal,Got frustrated today.
 
-2026-02-25,Neutral,1.0,emoji
+2026-03-22,Happy,0.97,journal,Feeling okay.
 
-2026-02-28,Sad,0.93,journal
-2026-02-28,Neutral,0.53,journal
-2026-02-28,Angry,1.0,emoji
-2026-02-28,Sad,1.0,emoji
-2026-02-28,Anxious,1.0,emoji
-2026-02-28,Sad,1.0,emoji
-2026-02-28,Anxious,1.0,emoji
-2026-03-01,Sad,0.92,journal
-2026-03-01,Happy,1.0,emoji
-2026-03-01,Angry,1.0,emoji
-2026-03-01,Angry,1.0,emoji
-2026-03-01,Anxious,1.0,emoji
-2026-03-01,Sad,1.0,emoji
+2026-03-23,Sad,0.96,journal,Felt really low today.
+2026-03-24,Anxious,0.93,journal,Couldn’t focus properly.
+2026-03-25,Angry,0.94,journal,Got irritated again.

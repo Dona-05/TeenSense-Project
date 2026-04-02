@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeenSense | Help & Support</title>
+
+<style>
+:root{
+    --primary-pink:#d81b60;
+    --primary-blue:#2563eb;
+    --gradient-main:linear-gradient(135deg,#ec4899 0%,#3b82f6 100%);
+    --bg-light:#f8fafc;
+}
+
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        background-color: var(--bg-light);
+    }
+
+    /* NAVBAR */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 80px;
+        background: white;
+    }
+
+    .brand-logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-pink);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 500;
+    }
+
+    .nav-links a.active-link {
+        color: var(--primary-pink);
+    }
+
+    .right-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #f0f7ff;
+        padding: 6px 15px;
+        border-radius: 30px;
+    }
+
+    .logout-btn {
+        background: #ef4444;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .logout-btn:hover {
+        background: #dc2626;
+    }
+
+
+/* BODY */
+.container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: var(--text-muted);
+}
+
+/* CARDS */
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--primary-blue);
+}
+
+.info {
+    margin-top: 10px;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.label {
+    font-weight: bold;
+    color: var(--primary-pink);
+}
+
+/* EMERGENCY BOX */
+.emergency {
+    background: #fee2e2;
+    border-left: 5px solid red;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+    <div class="brand-logo">★ TeenSense</div>
+
+    <div class="nav-links">
+        <a href="/parent/dashboard">Home</a>
+        <a href="/alerts">Alerts</a>
+        <a href="/parent/flashcards">Flashcards</a>
+        <a href="/parent/reminders">Reminders</a>
+        <a href="/help" class="active-link">Help</a>
+    </div>
+
+    <div class="right-section">
+        <div class="user-profile">
+            <div style="
+                background: var(--primary-blue);
+                color: white;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;">
+                ★
+            </div>
+            <strong>{{ parent_name }}</strong>
+        </div>
+
+        <a href="/logout">
+            <button class="logout-btn">Logout</button>
+        </a>
+
+    </div>
+
+</nav>
+
+<!-- CONTENT -->
+<div class="container">
+
+<div class="header">
+    <h1>Help & Support</h1>
+    <p>If you or your child need support, please reach out to our counselors.</p>
+</div>
+
+<!-- Counselor 1 -->
+<div class="card">
+    <h3>👩‍⚕️ Dr. Sindhu Ajith</h3>
+
+    <div class="info">
+        <p><span class="label">Specialization:</span> Consultation Psychology</p>
+        <p><span class="label">Phone:</span> +91 94460 22133</p>
+        <p><span class="label">Email:</span> sindhuajith@mgits.ac.in</p>
+        <p><span class="label">Availability:</span> Mon - Fri, 10 AM - 4 PM</p>
+    </div>
+</div>
+
+<!-- Counselor 2 -->
+<!--<div class="card">
+    <h3>👨‍⚕️ Dr. Rahul Nair</h3>
+
+    <div class="info">
+        <p><span class="label">Specialization:</span> Emotional Wellness & Stress Management</p>
+        <p><span class="label">Phone:</span> +91 91234 56789</p>
+        <p><span class="label">Email:</span> rahul.nair@counsel.com</p>
+        <p><span class="label">Availability:</span> Mon - Sat, 9 AM - 6 PM</p>
+    </div>
+</div>-->
+
+<!-- Emergency -->
+<div class="card emergency">
+    <h3>🚨 Emergency Support</h3>
+    <p>If there is an urgent emotional crisis, please contact a local helpline immediately.</p>
+    <p><span class="label">Helpline:</span> 9152987821</p>
+</div>
+
+</div>
+
+</body>
+</html>

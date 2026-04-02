@@ -1,5 +1,5 @@
 import csv
-from datetime import datetime, timedelta
+from datetime import datetime
 import os
 
 FILE_NAME = "reminders.csv"
@@ -18,7 +18,15 @@ def add_reminder():
 
     event = input("Enter event name: ")
     date = input("Enter event date (YYYY-MM-DD): ")
-    role = input("Who is this for? (teen/parent/both): ")
+
+    event_lower = event.lower()
+
+    # 🔥 AUTO-DETECT ROLE
+    if "exam" in event_lower or "parent" in event_lower:
+        role = "parent"
+        print("Auto-assigned to parent 👨‍👩‍👧")
+    else:
+        role = input("Who is this for? (teen/parent/both): ")
 
     with open(FILE_NAME, mode='a', newline='') as file:
         writer = csv.writer(file)
@@ -28,7 +36,7 @@ def add_reminder():
 
 
 # Check Upcoming Reminders (3 days before + event day)
-def check_upcoming_reminders():
+def check_upcoming_reminders(user_role):
     initialize_reminder_file()
 
     today = datetime.today().date()
@@ -42,6 +50,11 @@ def check_upcoming_reminders():
             last_notified = row["last_notified"]
 
             days_left = (event_date - today).days
+
+            # 🔥 FILTER BASED ON ROLE
+            if row["role"] not in [user_role, "both"]:
+                updated_rows.append(row)
+                continue
 
             # Show reminder if within 3 days and not already notified today
             if 0 <= days_left <= 3 and last_notified != str(today):

@@ -1,4 +1,4 @@
-id,sender,receiver,category,message,response,status,date
-1,,teen,support,we are here with you,okayy,responded,2026-02-19
-2,teen,[arent,i am okay,i am okayy,,sent,2026-02-19
-3,,quit(),,,,sent,2026-02-23
+id,sender,receiver,category,message,response,status,sent_time,response_time
+1,parent,teen,check-in,How were your classes today? What did you learn?,its good,responded,2026-03-25 21:01:56,2026-03-25 21:02:31
+3,parent,teen,appreciation,What made you smile or feel happy today?,,sent,2026-03-26 21:10:31,
+4,parent,teen,concern,"Are you facing any difficulties with studies, assignments, or exams?",,sent,2026-03-26 21:11:05,

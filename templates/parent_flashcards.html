@@ -1,203 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>TeenSense - Parent Flashcards</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>TeenSense - Parent Flashcards</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --primary-pink: #d81b60;
-            --primary-blue: #2563eb;
-            --gradient-main: linear-gradient(135deg, #ec4899 0%, #3b82f6 100%);
-            --bg-light: #f8fafc;
-            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
+<style>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-        }
+:root {
+    --primary-pink: #d81b60;
+    --primary-blue: #2563eb;
+    --gradient-main: linear-gradient(135deg, #ec4899 0%, #3b82f6 100%);
+    --bg-light: #f8fafc;
+    --shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
 
-        body {
-            background: var(--bg-light);
-        }
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
 
-        /* NAVBAR */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+    body {
+        background-color: var(--bg-light);
+    }
 
-        .logo {
-            color: var(--primary-pink);
-            font-size: 26px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+    /* NAVBAR */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 80px;
+        background: white;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
+    .brand-logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-pink);
+    }
 
-        .nav-links span {
-            cursor: pointer;
-            color: #64748b;
-            font-weight: 500;
-        }
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
 
-        .nav-links span.active {
-            color: var(--primary-pink);
-            border-bottom: 2px solid var(--primary-pink);
-        }
+    .nav-links a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 500;
+    }
 
-        .right-section {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    .nav-links a.active-link {
+        color: var(--primary-pink);
+    }
 
-        .user-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #eff6ff;
-            padding: 6px 15px;
-            border-radius: 50px;
-        }
+    .right-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
 
-        .user-icon {
-            background: var(--primary-blue);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #f0f7ff;
+        padding: 6px 15px;
+        border-radius: 30px;
+    }
 
-        .logout-btn {
-            padding: 8px 18px;
-            border-radius: 50px;
-            border: none;
-            background: #ef4444;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    .logout-btn {
+        background: #ef4444;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 600;
+    }
 
-        .logout-btn:hover {
-            background: #dc2626;
-        }
+    .logout-btn:hover {
+        background: #dc2626;
+    }
 
-        /* PAGE CONTENT */
-        .container {
-            padding: 60px 10%;
-        }
+.container {
+    padding: 60px 10%;
+}
 
-        .card-grid {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+.card-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            width: 350px;
-            box-shadow: var(--shadow);
-            border-top: 8px solid;
-        }
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    width: 350px;
+    box-shadow: var(--shadow);
+    border-top: 8px solid;
+    text-align: center;
+}
 
-        .card-pink {
-            border-top-color: var(--primary-pink);
-        }
+.card-pink {
+    border-top-color: var(--primary-pink);
+}
 
-        .card-blue {
-            border-top-color: var(--primary-blue);
-        }
+.card-blue {
+    border-top-color: var(--primary-blue);
+}
 
-        .btn {
-            padding: 12px 25px;
-            border-radius: 50px;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 15px;
-        }
+.btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
 
-        .btn-outline {
-            border: 1.5px solid #e2e8f0;
-            background: white;
-            color: var(--primary-pink);
-            width: 100%;
-            margin-top: 20px;
-        }
+.btn-outline {
+    border: 1.5px solid #e2e8f0;
+    background: white;
+    color: var(--primary-pink);
+}
 
-        .btn-outline-blue {
-            border: 1.5px solid var(--primary-blue);
-            background: white;
-            color: var(--primary-blue);
-            width: 100%;
-            margin-top: 20px;
-        }
+.btn-outline-blue {
+    border: 1.5px solid var(--primary-blue);
+    background: white;
+    color: var(--primary-blue);
+}
 
-    </style>
+.status-box {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 14px;
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.time-text {
+    font-size: 12px;
+    color: #64748b;
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
-        <div class="logo" onclick="window.location.href='/parent/dashboard'">
-            ★ TeenSense
-        </div>
+<!-- NAVBAR -->
+<nav>
 
-        <div class="nav-links">
-            <span onclick="window.location.href='/parent/dashboard'">Home</span>
-            <span class="active">Flashcards</span>
-        </div>
+    <div class="brand-logo">★ TeenSense</div>
 
-        <div class="right-section">
-            <div class="user-badge">
-                <div class="user-icon">★</div>
-                <b>{{ parent_name }}</b>
-            </div>
-
-            <a href="/logout">
-                <button class="logout-btn">Logout</button>
-            </a>
-        </div>
-    </nav>
-
-    <!-- FLASHCARD CONTENT -->
-    <div class="container">
-        <div class="card-grid">
-
-            <div class="card card-pink">
-                <p>How was your day today? Tell me about the best part!</p>
-                <button class="btn btn-outline">Send to Child</button>
-            </div>
-
-            <div class="card card-blue">
-                <p>What made you smile or feel happy today?</p>
-                <button class="btn btn-outline-blue">Send to Child</button>
-            </div>
-
-        </div>
+    <div class="nav-links">
+        <a href="/parent/dashboard">Home</a>
+        <a href="/alerts">Alerts</a>
+        <a href="/parent/flashcards" class="active-link">Flashcards</a>
+        <a href="/parent/reminders">Reminders</a>
+        <a href="/help">Help</a>
     </div>
+
+    <div class="right-section">
+
+        <div class="user-profile">
+            <div style="
+                background: var(--primary-blue);
+                color: white;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;">
+                ★
+            </div>
+            <strong>{{ parent_name }}</strong>
+        </div>
+
+        <a href="/logout">
+            <button class="logout-btn">Logout</button>
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- FLASHCARDS -->
+<div class="container">
+<div class="card-grid">
+
+{% for card in cards %}
+
+<div class="card {% if loop.index % 2 == 0 %}card-blue{% else %}card-pink{% endif %}">
+
+<p>{{ card.message }}</p>
+
+<!-- ===================== -->
+<!-- BUTTON LOGIC -->
+<!-- ===================== -->
+
+{% if not card.sent or card.can_resend %}
+
+<form method="POST" action="/send_flashcard">
+    <input type="hidden" name="message" value="{{ card.message }}">
+    <input type="hidden" name="category" value="{{ card.category }}">
+
+    <button type="submit" class="btn {% if loop.index % 2 == 0 %}btn-outline-blue{% else %}btn-outline{% endif %}">
+
+        {% if not card.sent %}
+            Send
+
+        {% elif card.status == "responded" %}
+            Send Again
+
+        {% else %}
+            Send
+
+        {% endif %}
+
+    </button>
+</form>
+
+{% else %}
+
+<button class="btn btn-outline" disabled>
+    Waiting for Response
+</button>
+
+{% endif %}
+
+<!-- ===================== -->
+<!-- STATUS BOX -->
+<!-- ===================== -->
+
+{% if card.sent %}
+
+<div class="status-box">
+
+<b>Status:</b><br>
+
+{% if card.status == "responded" %}
+<span style="color:green;">✔ Child Responded</span>
+{% else %}
+<span style="color:#f59e0b;">⚠ Waiting for Response</span>
+{% endif %}
+
+<br><br>
+
+<!-- SENT TIME -->
+<b>Sent:</b><br>
+<span class="time-text">{{ card.sent_time or "—" }}</span>
+
+<br><br>
+
+<!-- RESPONSE -->
+<b>Response:</b><br>
+
+{% if card.response %}
+{{ card.response }}
+
+<br><br>
+
+<b>Responded:</b><br>
+<span class="time-text">{{ card.response_time or "—" }}</span>
+
+{% else %}
+<i>No response yet</i>
+{% endif %}
+
+</div>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+</div>
 
 </body>
 </html>
