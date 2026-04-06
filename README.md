@@ -1,1 +1,41 @@
-TeenSense is an AI-based system developed to support teenagers' emotional well-being through journaling and emotion analysis. The system allows users to record their thoughts, analyzes emotional patterns using a pre-trained NLP model, and provides alerts to parents when necessary. It includes features such as a journaling system, emotion detection using natural language processing, a parent alert mechanism, reminder functionality, and flashcards for engagement. The system is built using Python, Hugging Face Transformers, DistilRoBERTa, Pandas, and CSV-based storage. The working of the system involves users entering journal data, which is processed using an emotion analysis model, after which the detected emotions are stored and alerts are generated if negative emotional patterns are identified.
+🧠 TeenSense
+AI-Powered Emotional Well-being System for Teenagers
+
+📌 Overview
+TeenSense is an AI-driven system designed to support teenagers’ mental and emotional well-being through intelligent journaling and emotion analysis. The platform allows users to record their daily thoughts, detects emotional patterns using Natural Language Processing (NLP), and provides timely alerts to parents when concerning trends are identified.
+
+🚀 Features
+✍️ Journaling System
+Enables teenagers to express thoughts and emotions through daily entries
+🧠 Emotion Detection (NLP)
+Uses a pre-trained NLP model to analyze sentiment and emotional patterns
+🚨 Parent Alert Mechanism
+Sends alerts when negative emotional trends are detected
+⏰ Reminder System
+Encourages consistent journaling habits
+🎴 Flashcards for Emotional Support
+Provides helpful content and coping suggestions
+🏗️ System Architecture
+
+The system consists of two primary interfaces and multiple backend modules:
+
+Child Interface → Journaling, Reminders
+Parent Interface → Alerts, Monitoring
+
+Backend Modules:
+Journaling Module
+Emotion Analysis Module
+Alert Module
+Reminder Module
+Flashcard Module
+
+Data Storage:
+daily_emotions.csv
+reminders.csv
+flashcards.csv
+
+🛠️ Tech Stack
+Frontend: HTML, CSS, JavaScript
+Backend: Python (Flask)
+Machine Learning: NLP Model (Pre-trained)
+Data Storage: CSV Files
